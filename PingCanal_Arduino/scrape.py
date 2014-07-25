@@ -1,6 +1,22 @@
 from bs4 import BeautifulSoup
 from time import sleep
+from arduino import Arduino
 import urllib2,re
+
+
+b = Arduino('/dev/tty.usbmodem1411')
+pin = (1, 2, 3, 4, 5, 6, 7, 8)
+
+b.output([pin])
+b.turnOff()
+
+def set_lights(*args):
+    for i in range(0,8):
+        if (bridges[i] == 0):
+            b.setHigh(pin[i])
+        else:
+            b.setLow(pin[i])
+
 
 
 def check_bridges():
@@ -18,6 +34,7 @@ def check_bridges():
             bridges[i] = 1
         
     #print bridges
+    set_lights(bridges)
 
     for i in range(0,8):
         if (bridges[i] == 0):
