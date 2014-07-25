@@ -10,12 +10,13 @@ pin = (1, 2, 3, 4, 5, 6, 7, 8)
 b.output([pin])
 b.turnOff()
 
-def set_lights(*args):
-    for i in range(0,8):
-        if (bridges[i] == 0):
-            b.setHigh(pin[i])
+def set_lights(*bridges):
+    
+    for j in range(0,8):
+        if (bridges[j] == 0):
+            b.setHigh(pin[j])
         else:
-            b.setLow(pin[i])
+            b.setLow(pin[j])
 
 
 
