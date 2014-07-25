@@ -9,14 +9,18 @@ pin = 9
 b.output([pin])
 b.turnOff()
 
-i=0
-while(i<10):
-    b.setHigh(9)
-    time.sleep(1)
-    b.setLow(9)
-    time.sleep(1)
-    i+=1
+while True:
+    i=0
+    j=0
+    while (i<3):
+        while(j<3):
+            b.setHigh(pin)
+            time.sleep(.100)
+            b.setLow(pin)
+            time.sleep(1)
+            j+=1
+        i+=1
 
 b.close()
-
+exit(0)
 
