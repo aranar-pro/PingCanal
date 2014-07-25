@@ -5,7 +5,7 @@ https://github.com/vascop/Python-Arduino-Proto-API-v2.git
 *****/
 
 #ifndef SERIAL_RATE
-#define SERIAL_RATE         115200
+#define SERIAL_RATE         9600
 #endif
 
 #ifndef SERIAL_TIMEOUT

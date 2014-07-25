@@ -3,19 +3,20 @@ import time
 
 #b = Arduino('/dev/ttyUSB0')
 b = Arduino('/dev/tty.usbmodem1411')
-pin = 13
+pin = 9
 
 #declare output pins as a list/tuple
 b.output([pin])
+b.turnOff()
 
-
-for i in range (0,10):
-    b.setHigh(pin)
+i=0
+while(i<10):
+    b.setHigh(9)
     time.sleep(1)
-    print b.getState(pin)
-    b.setLow(pin)
-    print b.getState(pin)
+    b.setLow(9)
     time.sleep(1)
+    i+=1
 
 b.close()
+
 
