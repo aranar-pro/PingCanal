@@ -10,15 +10,30 @@ pin = (1, 2, 3, 4, 5, 6, 7, 8)
 b.output([pin])
 b.turnOff()
 
-def set_lights(*bridges):
+def check_led_on_startup():
+    i=0
+    while (i<8):
+        b.setHigh(pin[i])
+        sleep(.1)
+        b.setLow(pin[i])
+        sleep(.01)
+        i+=1
+    sleep(2)
+    i=0
+    while (i<8):
+        b.setHigh(pin[i])
+        sleep(.1)
+        b.setLow(pin[i])
+        sleep(.01)
+        i+=1
+
+def set_lights(bridges):
     
     for j in range(0,8):
-        if (bridges[j] == 0):
+        if (bridges[j] == 1):
             b.setHigh(pin[j])
         else:
             b.setLow(pin[j])
-
-
 
 def check_bridges():
     bridges = [0,0,0,0,0,0,0,0]
@@ -46,8 +61,18 @@ def check_bridges():
 
 
 if __name__ == "__main__":
-    while True:
-        print "Checking bridges...\n"
-        check_bridges()
-        sleep(30)
+    check_led_on_startup()
+    try:
+        while True:
+            print "Checking bridges...\n"
+            check_bridges()
+            sleep(30)
+    except KeyboardInterrupt:
+        i=0
+        while (i<8):
+            b.setLow(pin[i])
+            i+=1
+        b.close()
+        exit(0)
+
     

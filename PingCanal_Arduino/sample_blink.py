@@ -25,5 +25,5 @@ except KeyboardInterrupt:
         b.setLow(pin[i])
         i+=1
     b.close()
-exit(0)
+    exit(0)
 
