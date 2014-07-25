@@ -1,8 +1,8 @@
 from arduino import Arduino
 import time
 
-#b = Arduino('/dev/ttyUSB0')
-b = Arduino('/dev/tty.usbmodem1411')
+b = Arduino('/dev/ttyACM1')
+#b = Arduino('/dev/tty.usbmodem1411')
 pin = (1, 2, 3, 4, 5, 6, 7, 8)
 #pin = 13
 
