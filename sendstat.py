@@ -1,13 +1,18 @@
 from arduino import Arduino
 import time
 
-#b = Arduino('/dev/ttyUSB0')
 b = Arduino('/dev/tty.usbmodem1411')
 pin = 9
 
 #declare output pins as a list/tuple
 b.output([pin])
+#ensure everything is off
 b.turnOff()
+
+
+
+
+
 
 while True:
     i=0
@@ -22,5 +27,3 @@ while True:
         i+=1
 
 b.close()
-exit(0)
-
