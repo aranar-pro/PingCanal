@@ -1,18 +1,10 @@
 from arduino import Arduino
-import time,re
-import serial.tools.list_ports
+import time
 
-
-try:
-    for p in serial.tools.list_ports.comports():
-        if re.search('Arduino',str(p[1])):
-            portString = str(p[0])
-except:
-    print "Could not open port!"
-    sys.exit()
-
-b = Arduino(portString)
+b = Arduino('/dev/ttyACM1')
+#b = Arduino('/dev/tty.usbmodem1411')
 pin = (1, 2, 3, 4, 5, 6, 7, 8)
+#pin = 13
 
 #declare output pins as a list/tuple
 b.output([pin])

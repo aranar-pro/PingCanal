@@ -1,7 +1,7 @@
 from arduino import Arduino
 import time
 
-b = Arduino('COM6')
+b = Arduino('/dev/tty.usbmodem1411')
 pin = 9
 
 #declare output pins as a list/tuple
